@@ -52,6 +52,7 @@ const propTypes = forbidExtraProps({
 
   // accessibility
   isFocused: PropTypes.bool, // describes actual DOM focus
+  inputComponent: PropTypes.any
 });
 
 const defaultProps = {
@@ -193,12 +194,14 @@ class DateInput extends React.PureComponent {
       block,
       styles,
       theme: { reactDates },
+      inputComponent,
     } = this.props;
 
     const value = dateString || displayValue || '';
     const screenReaderMessageId = `DateInput__screen-reader-message-${id}`;
 
     const withFang = showCaret && focused;
+    const Input = inputComponent
 
     const inputHeight = getInputHeight(reactDates, small);
 
@@ -214,7 +217,7 @@ class DateInput extends React.PureComponent {
           withFang && openDirection === OPEN_UP && styles.DateInput__openUp,
         )}
       >
-        <input
+        <Input
           {...css(
             styles.DateInput_input,
             small && styles.DateInput_input__small,

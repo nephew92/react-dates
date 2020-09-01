@@ -72,6 +72,8 @@ const propTypes = forbidExtraProps({
   phrases: PropTypes.shape(getPhrasePropTypes(SingleDatePickerInputPhrases)),
 
   isRTL: PropTypes.bool,
+  inputComponent: PropTypes.any,
+
 });
 
 const defaultProps = {
@@ -228,6 +230,7 @@ export default class SingleDatePickerInputController extends React.PureComponent
       small,
       regular,
       verticalSpacing,
+      inputComponent
     } = this.props;
 
     const displayValue = this.getDateString(date);
@@ -265,6 +268,7 @@ export default class SingleDatePickerInputController extends React.PureComponent
         small={small}
         regular={regular}
         verticalSpacing={verticalSpacing}
+        inputComponent={inputComponent}
       >
         {children}
       </SingleDatePickerInput>
