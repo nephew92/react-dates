@@ -51,6 +51,8 @@ const propTypes = forbidExtraProps({
   onKeyDownTab: PropTypes.func,
   onKeyDownArrowDown: PropTypes.func,
   onKeyDownQuestionMark: PropTypes.func,
+  
+  inputComponent: PropTypes.any,
 
   // i18n
   phrases: PropTypes.shape(getPhrasePropTypes(SingleDatePickerInputPhrases)),
@@ -129,6 +131,7 @@ function SingleDatePickerInput({
   regular,
   verticalSpacing,
   styles,
+  inputComponent
 }) {
   const calendarIcon = customInputIcon || (
     <CalendarIcon {...css(styles.SingleDatePickerInput_calendarIcon_svg)} />
@@ -192,6 +195,7 @@ function SingleDatePickerInput({
         small={small}
         regular={regular}
         block={block}
+        inputComponent={inputComponent}
       />
 
       {children}

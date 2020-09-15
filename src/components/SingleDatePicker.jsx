@@ -442,6 +442,7 @@ class SingleDatePicker extends React.PureComponent {
       horizontalMonthPadding,
       small,
       theme: { reactDates },
+      inputComponent,
     } = this.props;
     const { dayPickerContainerStyles, isDayPickerFocused, showKeyboardShortcuts } = this.state;
 
@@ -578,6 +579,7 @@ class SingleDatePicker extends React.PureComponent {
       styles,
       isOutsideRange,
       isDayBlocked,
+      inputComponent,
     } = this.props;
 
     const { isInputFocused } = this.state;
@@ -622,6 +624,7 @@ class SingleDatePicker extends React.PureComponent {
         verticalSpacing={verticalSpacing}
         reopenPickerOnClearDate={reopenPickerOnClearDate}
         keepOpenOnDateSelect={keepOpenOnDateSelect}
+        inputComponent={inputComponent}
       >
         {this.maybeRenderDayPickerWithPortal()}
       </SingleDatePickerInputController>
