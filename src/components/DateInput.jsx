@@ -201,7 +201,11 @@ class DateInput extends React.PureComponent {
     const screenReaderMessageId = `DateInput__screen-reader-message-${id}`;
 
     const withFang = showCaret && focused;
-    const Input = inputComponent
+    const DefaultInput = ({setRef,...props}) => {
+      return <input {...props} ref={setRef}/>
+    }
+
+    const Input = inputComponent || DefaultInput
 
     const inputHeight = getInputHeight(reactDates, small);
 
@@ -231,7 +235,7 @@ class DateInput extends React.PureComponent {
           type="text"
           id={id}
           name={id}
-          ref={this.setInputRef}
+          setRef={this.setInputRef}
           value={value}
           onChange={this.onChange}
           onKeyDown={this.onKeyDown}
